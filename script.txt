@@ -1,0 +1,19 @@
+# Fill out the following empty quotes "" and then paste and run lines 2-end into powershell. Even if it throws an error it may still have worked
+
+
+
+
+ $fileNames = Get-ChildItem . *.html -Recurse |
+ select -expand fullname
+
+foreach ($filename in $filenames) 
+{
+  (  Get-Content $fileName) -replace "companyNameReplace",                      "Fun To Sail" | Set-Content $fileName
+  (  Get-Content $fileName) -replace "homeDescriptionReplace",                  "It's tiller time! Fun To Sail is here for all your sailing needs. PFDs, lessons, snarks and more!" | Set-Content $fileName
+  (  Get-Content $fileName) -replace "emailReplace",                            "sail@funtosail.com" | Set-Content $fileName
+  (  Get-Content $fileName) -replace "contactDescriptionReplace",               "Call us or email us! It's tiller time." | Set-Content $fileName
+  (  Get-Content $fileName) -replace "phoneReplace",                            "208-704-4454" | Set-Content $fileName
+  (  Get-Content $fileName) -replace "faxReplace",                              "" | Set-Content $fileName
+  (  Get-Content $fileName) -replace "clientInformationDescriptionReplace",     "It's tiller time! Contact Fun To Sail for questions or feedback. Call or Email us." | Set-Content $fileName
+  (  Get-Content $fileName) -replace "aboutDescriptionReplace",                 "It's tiller time! Learn about Fun To Sail. Who we are, what we do, and where we're from." | Set-Content $fileName
+}
